@@ -1,6 +1,5 @@
 -- // credits to anyones code i used/looked at.
-shared._FUTUREVERSION = "1.1.6a | "..((shared.FutureDeveloper and "dev" or "release")).." build" -- // This is a cool thing yes
-shared._FUTUREMOTD = "futureclient.xyz 🔥"
+shared._FUTUREMOTD = "futureclient ripoff 🔥"
 print("[Future] Loading!")
 repeat wait() until game:IsLoaded()
 if shared.Future~=nil then print("[Future] Detected future already executed, not executing!") return end
@@ -31,7 +30,7 @@ local function requesturl(url, bypass)
     if betterisfile(url) and shared.FutureDeveloper then 
         return readfile(url)
     end
-    local repourl = bypass and "https://raw.githubusercontent.com/joeengo/" or "https://raw.githubusercontent.com/joeengo/Future/main/"
+    local repourl = bypass and "https://raw.githubusercontent.com/Nebulaprivatewhitelistbypass/" or "https://raw.githubusercontent.com/Nebulaprivatewhitelistbypass/Future/main/"
     local url = url:gsub("Future/", "")
     local req = requestfunc({
         Url = repourl..url,
