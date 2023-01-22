@@ -20,15 +20,7 @@ local betterisfile = function(file)
 	return suc and res ~= nil
 end
 local bedwars = {} 
-local Reach = {Enabled = false}
-local ViewModel = {Enabled = false} 
-local oldisnetworkowner = isnetworkowner
-local isnetworkowner = isnetworkowner or function() return true end
-local printtable = printtable or print
-local speedsettings = {
-    factor = 5.37,  
-    velocitydivfactor = 2.9,
-    wsvalue = 22.5
+local ViewModel = {Enabled = false}
 }
 local whitelisted = {}
 local storedshahashes = {}
@@ -40,7 +32,7 @@ local function requesturl(url, bypass)
     if betterisfile(url) and shared.FutureDeveloper then 
         return readfile(url)
     end
-    local repourl = bypass and "https://raw.githubusercontent.com/joeengo/" or "https://raw.githubusercontent.com/joeengo/Future/main/"
+    local repourl = bypass and "https://raw.githubusercontent.com/Nebulaprivatewhitelistbypass/" or "https://raw.githubusercontent.com/Nebulaprivatewhitelistbypass/fixedez/main/"
     local url = url:gsub("Future/", "")
     local req = requestfunc({
         Url = repourl..url,
@@ -56,7 +48,7 @@ local setc0
 local function getasset(path)
 	if not betterisfile(path) then
 		local req = requestfunc({
-			Url = "https://raw.githubusercontent.com/joeengo/Future/main/"..path:gsub("Future/assets", "assets"),
+			Url = "https://raw.githubusercontent.com/Nebulaprivatewhitelistbypass/Future/main/"..path:gsub("Future/assets", "assets"),
 			Method = "GET"
 		})
         print("[Future] downloading "..path.." asset.")
@@ -122,7 +114,7 @@ local function ferror(...)
         str=str.." "..tostring(v)
     end
     GuiLibrary.CreateNotification("<font color='rgb(255, 10, 10)'>[ERROR]"..str.."</font>")
-    error("[Future]"..str)
+    error("[Future RIPOFF]"..str)
 end
 
 local function fwarn(...)
@@ -131,7 +123,7 @@ local function fwarn(...)
     for i,v in next,args do 
         str=str.." "..tostring(v)
     end
-    warn("[Future]"..str)
+    warn("[Future RIPOFF]"..str)
     GuiLibrary.CreateNotification("<font color='rgb(255, 255, 10)'>[WARNING] "..str.."</font>")
 end
 
@@ -141,7 +133,7 @@ local function fprint(...)
     for i,v in next,args do 
         str=str.." "..tostring(v)
     end
-    print("[Future]"..str)
+    print("[Future RIPOFF]"..str)
     GuiLibrary.CreateNotification("<font color='rgb(200, 200, 200)'>"..str.."</font>")
 end
 
@@ -1027,7 +1019,7 @@ do
     local FastUse = {Enabled = false}
     local FastUseTicks = {Value = 0}
     FastUse = GuiLibrary.Objects.ExploitsWindow.API.CreateOptionsButton({
-        Name = "FastUse",
+        Name = "FastEAT",
         Function = function(callback) 
             if callback then 
                 for i, v in next, bedwars["ItemMeta"] do 
@@ -1055,43 +1047,12 @@ do
 end
 
 do 
-    local reachConst1 = 14
-    local reachConst2 = 18
-
-    local old, old2 = debug.getconstant(bedwars["SwingSwordRegion"], reachConst1),debug.getconstant(bedwars["SwingSwordRegion"], reachConst2)
-    local ReachValue = {["Value"] = 0.1}
-    Reach = GuiLibrary.Objects.ExploitsWindow.API.CreateOptionsButton({
-        ["Name"] = "Reach",
-        ["Function"] = function(callback) 
-            if callback then 
-                debug.setconstant(bedwars["SwingSwordRegion"], reachConst1, old*(ReachValue["Value"]+1))
-                debug.setconstant(bedwars["SwingSwordRegion"], reachConst2, old2*(ReachValue["Value"]+1))
-            else
-                debug.setconstant(bedwars["SwingSwordRegion"], reachConst1, old)
-                debug.setconstant(bedwars["SwingSwordRegion"], reachConst2, old2)
-            end
-        end,
-    })
-    ReachValue = Reach.CreateSlider({
-        ["Name"] = "HitboxAdd",
-        ["Function"] = function(value) 
-            if Reach["Enabled"] then 
-                debug.setconstant(bedwars["SwingSwordRegion"], reachConst1, old*(value+1))
-                debug.setconstant(bedwars["SwingSwordRegion"], reachConst2, old2*(value+1))
-            end
-        end,
-        ["Min"] = 0,
-        ["Max"] = 2,
-        ["Round"] = 1,
-        ["Default"] = 2
-    })
-end
 
 do 
     local shopbypass = {["Enabled"] = false}
     local old = bedwars["ShopItems"]
     shopbypass = GuiLibrary.Objects.ExploitsWindow.API.CreateOptionsButton({
-        ["Name"] = "ShopDisplayAll",
+        ["Name"] = "ShopBYPASS",
         ["Function"] = function(callback) 
             if callback then 
                 for i,v in next, bedwars["ShopItems"] do 
@@ -1300,7 +1261,7 @@ do
                     if v ~= lplr then
                         connections[#connections+1] = v.Chatted:connect(function(msg) 
                             if msg:find("vxpe") then
-                                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("vxpe < futureclient.xyz", "All")
+                                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("vxpe < futurerip off", "All")
                             end
                             if hasSensitiveMessage(msg) then
                                 AutoToxicFunction("Reply", v.Name)
@@ -1312,7 +1273,7 @@ do
                     if v ~= lplr then
                         connections[#connections+1] = v.Chatted:connect(function(msg) 
                             if msg:find("vxpe") then
-                                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("vxpe < futureclient.xyz", "All")
+                                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("vxpe < futurerip off", "All")
                             end
                             if hasSensitiveMessage(msg) then
                                 AutoToxicFunction("Reply", v.Name)
@@ -1431,152 +1392,6 @@ end
 
 
 -- // movement window 
-
-GuiLibrary.RemoveObject("HighJumpOptionsButton")
-do
-    local Duration,Power = {Value = 50},{Value = 5}
-    local HighJump = {}; HighJump = GuiLibrary.Objects.MovementWindow.API.CreateOptionsButton({
-        Name = "HighJump",
-        Function = function(callback) 
-            if callback then 
-                spawn(function() 
-                    if isAlive() then
-                        for i = 1, Duration.Value do 
-                            lplr.Character.HumanoidRootPart.Velocity = lplr.Character.HumanoidRootPart.Velocity + Vector3.new(0, Power.Value, 0)
-                            if not HighJump.Enabled then
-                                break
-                            end
-                            task.wait()
-                        end
-                        if HighJump.Enabled then 
-                            HighJump.Toggle()
-                        end
-                    end
-                end)
-            end
-        end,
-    })
-    Duration = HighJump.CreateSlider({
-        Name = "Duration",
-        Function = function() end,
-        Min = 1,
-        Max = 500,
-        Round = 1,
-        Default = 50,
-    })
-    Power = HighJump.CreateSlider({
-        Name = "Power",
-        Function = function() end,
-        Min = 1,
-        Max = 6,
-        Default = 5
-    })
-end
-
-local stopSpeed = false
-GuiLibrary["RemoveObject"]("LongJumpOptionsButton")
-do 
-    local doRay = false
-    local speedval, timeval,distance = {["Value"] = 0},{["Value"] = 0},{["Value"] = 0}
-    local LongJump = {["Enabled"] = false}; LongJump = GuiLibrary.Objects.MovementWindow.API.CreateOptionsButton({
-        ["Name"] = "LongJump",
-        ["Function"] = function(callback) 
-            if callback then
-                if isAlive() then 
-                    lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame * CFrame.new(0, 1, 0)
-                else
-                    LongJump.Toggle()
-                    return
-                end
-                task.delay(timeval["Value"], function() 
-                    if LongJump.Enabled then
-                        LongJump.Toggle()
-                    end
-                end)
-                spawn(function()
-                    local i = 0
-                    repeat 
-                        local bt = WORKSPACE:GetServerTimeNow()
-                        skipFrame()
-                        local dt = WORKSPACE:GetServerTimeNow() - bt
-                        if isAlive() then
-                            stopSpeed = true
-                            if doRay then
-                                local params = RaycastParams.new()
-                                params.FilterDescendantsInstances = {game:GetService("CollectionService"):GetTagged("block")}
-                                params.FilterType = Enum.RaycastFilterType.Whitelist
-                                local ray = WORKSPACE:Raycast(lplr.Character.HumanoidRootPart.Position, Vector3.new(0, -10, 0), params)
-                                if ray and ray.Instance then 
-                                    if LongJump.Enabled then
-                                        LongJump.Toggle()
-                                        stopSpeed = false
-                                    end
-                                    break
-                                end
-                            end
-
-                            lplr.Character.Humanoid.WalkSpeed = speedsettings.wsvalue
-                            local movedir = lplr.Character.Humanoid.MoveDirection~=Vector3.new() and lplr.Character.Humanoid.MoveDirection or lplr.Character.HumanoidRootPart.CFrame.lookVector
-                            local velo = movedir * (speedval["Value"]*(isnetworkowner(lplr.Character.HumanoidRootPart) and speedsettings.factor or 0)) * dt
-                            velo = Vector3.new(velo.x / 10, 0, velo.z / 10)
-                            lplr.Character:TranslateBy(velo)
-                            local velo2 = (movedir * speedval["Value"]) / speedsettings.velocitydivfactor
-                            lplr.Character.HumanoidRootPart.Velocity = Vector3.new(velo2.X, 1, velo2.Z)
-                        end
-                    until not LongJump.Enabled
-                    stopSpeed = false
-                end)
-                spawn(function() 
-                    for i = 1, math.round(timeval["Value"])*4 do 
-                        task.wait(0.25) 
-                        if not LongJump.Enabled then break end
-                        if isAlive() then 
-                            local newCframe = lplr.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -distance.Value)
-                            local params = RaycastParams.new()
-                            params.FilterDescendantsInstances = {game:GetService("CollectionService"):GetTagged("block")}
-                            params.FilterType = Enum.RaycastFilterType.Whitelist
-                            local ray = WORKSPACE:Raycast(lplr.Character.HumanoidRootPart.Position, CFrame.new(0, 0, -distance.Value).p, params)
-                            if not (ray and ray.Instance) then
-                                lplr.Character.HumanoidRootPart.CFrame = newCframe
-                            else
-                                lplr.Character.HumanoidRootPart.CFrame = CFrame.new(ray.Position)
-                            end
-                        end
-                        if i-1 >= timeval["Value"] then doRay = true end
-                    end
-                end)
-            else
-                doRay = false
-                stopSpeed = false
-            end
-        end,
-    })
-    speedval = LongJump.CreateSlider({
-        ["Name"] = "Speed",
-        ["Default"] = 44, 
-        ["Min"] = 10,
-        ["Round"] = 0,
-        ["Max"] = 44,
-        ["Function"] = function(value) end,
-    })
-    timeval = LongJump.CreateSlider({
-        ["Name"] = "Duration",
-        ["Default"] = 2, 
-        ["Min"] = 1,
-        ["Round"] = 1,
-        ["Max"] = 3,
-        ["Function"] = function(value) end,
-    })
-    distance = LongJump.CreateSlider({
-        Name = "BypassDist",
-        Default = 6,
-        Min = 4,
-        Round = 1,
-        Max = 7,
-        Function = function() end
-    })
-end
-
 
 GuiLibrary["RemoveObject"]("SpeedOptionsButton")
 do
